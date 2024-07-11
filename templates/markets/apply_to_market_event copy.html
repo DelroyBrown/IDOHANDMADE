@@ -1,0 +1,113 @@
+<!-- templates/markets/apply_to_market_event.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Apply to {{ market_event.title }}</h1>
+<p>{{ market_event.description }}</p>
+<p>Location: {{ market_event.location }}</p>
+<p>Dates and Prices:</p>
+<ul>
+    {% for event_date in event_dates %}
+    <li> 
+        Date: {{ event_date.date }} - Price: £{{ event_date.price }}
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="market_event_id" value="{{ market_event.id }}">
+            <input type="hidden" name="event_date_id" value="{{ event_date.id }}">
+
+            <!-- Display form non-field errors -->
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <!-- Vendor Name -->
+            <div class="form-group">
+                <label for="vendor_name">Vendor Name:</label>
+                <input type="text" id="vendor_name" name="vendor_name"
+                    value="{{ form.vendor_name.value|default_if_none:'' }}">
+                {% if form.vendor_name.errors %}
+                <div class="alert alert-danger">
+                    {{ form.vendor_name.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Company Name -->
+            <div class="form-group">
+                <label for="company_name">Company Name:</label>
+                <input type="text" id="company_name" name="company_name"
+                    value="{{ form.company_name.value|default_if_none:'' }}">
+                {% if form.company_name.errors %}
+                <div class="alert alert-danger">
+                    {{ form.company_name.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Products -->
+            <div class="form-group">
+                <label for="products">Products:</label>
+                <textarea id="products" name="products">{{ form.products.value|default_if_none:'' }}</textarea>
+                {% if form.products.errors %}
+                <div class="alert alert-danger">
+                    {{ form.products.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="form-group">
+                <label for="social_media_links">Social Media Links:</label>
+                <input type="url" id="social_media_links" name="social_media_links"
+                    value="{{ form.social_media_links.value|default_if_none:'' }}">
+                {% if form.social_media_links.errors %}
+                <div class="alert alert-danger">
+                    {{ form.social_media_links.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Website Link -->
+            <div class="form-group">
+                <label for="website_link">Website Link:</label>
+                <input type="url" id="website_link" name="website_link"
+                    value="{{ form.website_link.value|default_if_none:'' }}">
+                {% if form.website_link.errors %}
+                <div class="alert alert-danger">
+                    {{ form.website_link.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ form.email.value|default_if_none:'' }}">
+                {% if form.email.errors %}
+                <div class="alert alert-danger">
+                    {{ form.email.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Contact Number -->
+            <div class="form-group">
+                <label for="contact_number">Contact Number:</label>
+                <input type="text" id="contact_number" name="contact_number"
+                    value="{{ form.contact_number.value|default_if_none:'' }}">
+                {% if form.contact_number.errors %}
+                <div class="alert alert-danger">
+                    {{ form.contact_number.errors }}
+                </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+    </li>
+    <hr>
+    {% endfor %}
+</ul>
+{% endblock %}

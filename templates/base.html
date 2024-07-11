@@ -17,8 +17,10 @@
 
 <body class="d-flex flex-column h-100">
 
+    {% include 'markets/includes/main_header.html' %}
     {% block content %}
     {% endblock %}
+    {% include 'markets/includes/main_footer.html' %}
 
     <script src="{% static 'javascript/jquery.min.js' %}"></script>
     <script src="{% static 'javascript/bootstrap.bundle.min.js' %}"></script>
