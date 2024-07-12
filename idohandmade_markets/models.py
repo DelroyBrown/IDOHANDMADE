@@ -27,7 +27,7 @@ class VendorApplication(models.Model):
     vendor_name = models.CharField(max_length=255)
     company_name = models.CharField(max_length=255)
     products = models.TextField()
-    social_media_links = models.URLField(blank=True)
+    social_media_links = models.CharField(max_length=200, blank=True, default='')
     website_link = models.URLField(blank=True)
     email = models.EmailField(max_length=200, default="")
     contact_number = models.CharField(max_length=50, default="")

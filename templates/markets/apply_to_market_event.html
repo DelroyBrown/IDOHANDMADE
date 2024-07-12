@@ -35,7 +35,7 @@
                       {% endif %}
           
                       <!-- Vendor Name -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="vendor_name">Vendor Name:</label>
                           <input class="form-control" type="text" id="vendor_name" name="vendor_name"
                               value="{{ form.vendor_name.value|default_if_none:'' }}">
@@ -47,7 +47,7 @@
                       </div>
           
                       <!-- Company Name -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="company_name">Company Name:</label>
                           <input class="form-control" type="text" id="company_name" name="company_name"
                               value="{{ form.company_name.value|default_if_none:'' }}">
@@ -59,7 +59,7 @@
                       </div>
           
                       <!-- Products -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="products">Products:</label>
                           <textarea class="form-control" id="products" name="products">{{ form.products.value|default_if_none:'' }}</textarea>
                           {% if form.products.errors %}
@@ -70,7 +70,7 @@
                       </div>
           
                       <!-- Social Media Links -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="social_media_links">Social Media Links:</label>
                           <input class="form-control" type="url" id="social_media_links" name="social_media_links"
                               value="{{ form.social_media_links.value|default_if_none:'' }}">
@@ -82,7 +82,7 @@
                       </div>
           
                       <!-- Website Link -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="website_link">Website Link:</label>
                           <input class="form-control" type="url" id="website_link" name="website_link"
                               value="{{ form.website_link.value|default_if_none:'' }}">
@@ -94,7 +94,7 @@
                       </div>
           
                       <!-- Email -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="email">Email:</label>
                           <input class="form-control" type="email" id="email" name="email" value="{{ form.email.value|default_if_none:'' }}">
                           {% if form.email.errors %}
@@ -105,7 +105,7 @@
                       </div>
           
                       <!-- Contact Number -->
-                      <div class="form-group">
+                      <div class="form-group mb-3 mt-3">
                           <label class="form-label" for="contact_number">Contact Number:</label>
                           <input class="form-control" type="text" id="contact_number" name="contact_number"
                               value="{{ form.contact_number.value|default_if_none:'' }}">
@@ -116,7 +116,7 @@
                           {% endif %}
                       </div>
           
-                      <button type="submit" class="btn btn-primary">Submit Application</button>
+                      <button type="submit" class="btn btn-primary mb-3 mt-3">Submit Application</button>
                   </form>
                   </div>
                 </div>
